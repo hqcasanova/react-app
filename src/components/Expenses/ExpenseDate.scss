@@ -1,0 +1,15 @@
+.expense-date {
+  display: flex;
+  width: 5.5rem;
+  height: 5.5rem;
+  align-items: center;
+  justify-content: center;
+
+  &__item {
+    display: block;
+  }
+
+  &__year {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,42 @@
+@import 'scss/variables.scss';
+
+.new-expense {
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding: 0;
+    gap: 1rem;
+    text-align: left;
+    border: none;
+  }
+
+  &__field {
+    display: block;
+
+    &--wide {
+      width: 100%;
+    }
+  }
+
+  &__actions {
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+
+  @media (min-width: 580px) {
+    &__controls {
+      flex-direction: row;
+    }
+
+    &__field:not(&__field--wide) {
+      width: calc(50% - .5rem);
+    }
+
+    &__actions {
+      text-align: right;
+    }
+  }
+}
+  

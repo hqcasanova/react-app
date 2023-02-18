@@ -1,0 +1,17 @@
+.expenses {
+  margin: 2rem auto;
+  width: 95%;
+  max-width: 50rem;
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  &__counter {
+    font-size: .9rem;
+  }
+}
+

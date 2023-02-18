@@ -1,0 +1,26 @@
+@import 'scss/variables.scss';
+
+.button {
+  padding: 0.6rem 1rem;
+  font: inherit;
+  color: $white;
+  border: none;
+  border-radius: 12px;
+  background-color: $primary;
+  outline: 0;
+  cursor: pointer;
+  transition: background-color .3s ease-in;
+
+  &.secondary {
+    background-color: $secondary;
+  }
+
+  &:hover, &:active, &:focus {
+    background-color: lighten($primary, 5%);
+  }
+
+  &:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,24 @@
+@import 'scss/variables.scss';
+
+.expenses-filter {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0 1rem;
+
+  select {
+    padding: 0.5rem 0.8rem;
+    font: inherit;
+    font-weight: bold;
+    color: $primary;
+    border-color: $primary;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: 0;
+    transition: background-color .3s ease-in;
+
+    &:focus {
+      color: $white;
+      background-color: $primary;
+    }
+  }
+}
