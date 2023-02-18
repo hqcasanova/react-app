@@ -51,13 +51,14 @@ function ExpensesList({
   };
 
   const filteredCount = () => {
-    if (filteredExpenses.length >= expenses.length) {
+    const filteredLength = filteredExpenses.length;
+    if (filteredLength === 0 || filteredLength === expenses.length) {
       return null;
     }
 
     return (
       <>
-        <strong>{ filteredExpenses.length }</strong>
+        <strong>{ filteredLength }</strong>
         { ' out of ' }
       </>
     );

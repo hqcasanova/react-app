@@ -13,12 +13,11 @@
     border-color: $primary;
     border-radius: 6px;
     cursor: pointer;
-    outline: 0;
-    transition: background-color .3s ease-in;
+    outline-color: transparent;
+    transition: outline-color .3s ease-in;
 
     &:focus {
-      color: $white;
-      background-color: $primary;
+      outline-color: $primary;
     }
   }
 }
