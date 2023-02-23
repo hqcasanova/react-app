@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import './List.scss';
+
 type Props<ItemType> = {
   className?: string,
   items: ItemType[],
@@ -20,7 +22,7 @@ function List({
       {
         items.length > 0
           ? items.map((item) => children(item, 'li'))
-          : <li>{ emptyItem }</li>
+          : <li className='list--empty'>{ emptyItem }</li>
       }
     </ul>
   );

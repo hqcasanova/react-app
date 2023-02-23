@@ -3,18 +3,20 @@ import {
   useRef,
   useState,
 } from 'react';
+
 import ExpenseInput from 'models/ExpenseInput';
 import Button from 'components/ui/Button';
+import Field, { FieldHandle } from 'components/ui/Field';
 
 import './ExpenseForm.scss';
-import Field, { FieldHandle } from 'components/ui/Field';
 
 type Props = {
   minDate: string,
   maxDate: string,
   minPrice: string,
   stepPrice: string,
-  onSaveExpense: (expense: ExpenseInput) => void
+  onSaveExpense: (expense: ExpenseInput) => void,
+  onCancel: () => void,
 };
 
 function ExpenseForm({
@@ -23,6 +25,7 @@ function ExpenseForm({
   minPrice,
   stepPrice,
   onSaveExpense,
+  onCancel,
 }: Props) {
   const initInput = new ExpenseInput();
   const [userInput, setUserInput] = useState(initInput);
@@ -113,6 +116,12 @@ function ExpenseForm({
       <div className='new-expense__actions'>
         <Button onClick={submitHandler}>
           Add expense
+        </Button>
+        <Button
+          className='outline'
+          onClick={onCancel}
+        >
+          Cancel
         </Button>
       </div>
     </form>

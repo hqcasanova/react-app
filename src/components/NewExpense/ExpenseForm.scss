@@ -21,8 +21,9 @@
   }
 
   &__actions {
+    display: flex;
+    gap: 1rem;
     margin-top: 1.5rem;
-    text-align: left;
   }
 
   @media (min-width: 580px) {
@@ -35,7 +36,7 @@
     }
 
     &__actions {
-      text-align: right;
+      flex-direction: row-reverse;
     }
   }
 }

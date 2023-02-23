@@ -15,6 +15,16 @@
     background-color: $secondary;
   }
 
+  &.outline {
+    color: $primary;
+    background-color: transparent;
+    border: 2px solid $primary;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
   &:hover, &:active, &:focus {
     background-color: lighten($primary, 5%);
   }
