@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 
-import './ExpensesFilter.scss';
+import classes from './ExpensesFilter.module.scss';
 
 type Props = {
   startYear: number,
@@ -30,7 +30,7 @@ function ExpensesFilter({
   };
 
   return (
-    <label className='expenses-filter'>
+    <label className={classes['expenses-filter']}>
       Filter by year
       <select
         value={selectedYear}

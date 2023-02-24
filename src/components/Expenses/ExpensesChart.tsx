@@ -2,7 +2,7 @@ import Card from 'components/ui/Card';
 import ChartBar from 'components/ui/ChartBar';
 import Expense from 'models/Expense';
 
-import './ExpensesChart.scss';
+import classes from './ExpensesChart.module.scss';
 
 type Props = {
   expenses: Expense[],
@@ -33,7 +33,7 @@ function ExpensesChart({ expenses }: Props) {
   const globalMax = Math.max(...dataValues);
 
   return (
-    <Card className='expenses-chart'>
+    <Card className={classes['expenses-chart']}>
       { dataPoints.map(({ label, value }) => (
         <ChartBar
           key={label}

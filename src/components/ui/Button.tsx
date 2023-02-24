@@ -1,6 +1,6 @@
 import { MouseEvent, ReactNode } from 'react';
 
-import './Button.scss';
+import classes from './Button.module.scss';
 
 type Props = {
   className?: string,
@@ -13,7 +13,14 @@ function Button({
   onClick,
   children,
 }: Props) {
-  const classes = `button ${className}`;
+  const rootClasses = [
+    'button',
+    ...className.split(' '),
+  ];
+  const rootClassName = rootClasses
+    .map((cName) => classes[cName] || cName)
+    .filter(Boolean)
+    .join(' ');
 
   const clickHandler = (event: MouseEvent<HTMLButtonElement>) => {
     onClick(event);
@@ -22,7 +29,7 @@ function Button({
   return (
     <button
       type='button'
-      className={classes}
+      className={rootClassName}
       onClick={clickHandler}
     >
       { children }

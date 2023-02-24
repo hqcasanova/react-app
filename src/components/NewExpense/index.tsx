@@ -6,7 +6,7 @@ import Card from 'components/ui/Card';
 import Button from 'components/ui/Button';
 import ExpenseForm from './ExpenseForm';
 
-import './index.scss';
+import classes from './index.module.scss';
 
 type Props = {
   minDate?: string,
@@ -39,7 +39,7 @@ function NewExpense({
   };
 
   return (
-    <Card className='new-expense'>
+    <Card className={classes['new-expense']}>
       { isEditing ? (
         <ExpenseForm
           minDate={minDate}

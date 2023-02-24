@@ -1,6 +1,6 @@
 import { createElement, ReactNode } from 'react';
 
-import './Card.scss';
+import classes from './Card.module.scss';
 
 type Props = {
   tagName?: string,
@@ -13,11 +13,18 @@ function Card({
   className = '',
   children,
 }: Props) {
-  const classes = `card ${className}`;
+  const rootClasses = [
+    'card',
+    ...className.split(' '),
+  ];
+  const rootClassName = rootClasses
+    .map((cName) => classes[cName] || cName)
+    .filter(Boolean)
+    .join(' ');
 
   return createElement(
     tagName,
-    { className: classes },
+    { className: rootClassName },
     children,
   );
 }

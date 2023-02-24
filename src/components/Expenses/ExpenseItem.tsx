@@ -1,7 +1,7 @@
 import Card from 'components/ui/Card';
 import ExpenseDate from './ExpenseDate';
 
-import './ExpenseItem.scss';
+import classes from './ExpenseItem.module.scss';
 
 type Props = {
   rootTag: string,
@@ -25,17 +25,17 @@ function ExpenseItem({
   return (
     <Card
       tagName={rootTag}
-      className='expense-item'
+      className={classes['expense-item']}
     >
       <ExpenseDate
         date={date}
         onClick={clickHandler}
       />
-      <div className='expense-item__description'>
-        <span className='expense-item__title'>
+      <div className={classes['expense-item__description']}>
+        <span className={classes['expense-item__title']}>
           { title }
         </span>
-        <div className='expense-item__price'>
+        <div className={classes['expense-item__price']}>
           { `${amount} €` }
         </div>
       </div>

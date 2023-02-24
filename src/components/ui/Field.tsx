@@ -9,7 +9,7 @@ import {
   useState,
 } from 'react';
 
-import './Field.scss';
+import classes from './Field.module.scss';
 
 type UpstreamAttrs = {
   label: string,
@@ -40,10 +40,15 @@ function Field(
   const [isValid, setIsValid] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
 
-  const rootClasses = ['field', className];
-  if (isTouched && !isValid) {
-    rootClasses.push('field--error');
-  }
+  const rootClasses = [
+    'field',
+    isTouched && !isValid ? 'field--error' : '',
+    ...className.split(' '),
+  ];
+  const rootClassName = rootClasses
+    .map((cName) => classes[cName] || cName)
+    .filter(Boolean)
+    .join(' ');
 
   const validate = ({ required = false, value = '' } = inputProps) => {
     const isFilled = value.toString().trim().length > 0;
@@ -76,7 +81,7 @@ function Field(
   };
 
   return (
-    <label className={rootClasses.join(' ')}>
+    <label className={rootClassName}>
       <strong>{ label }</strong>
       <input
         {...inputProps}

@@ -8,7 +8,7 @@ import ExpenseInput from 'models/ExpenseInput';
 import Button from 'components/ui/Button';
 import Field, { FieldHandle } from 'components/ui/Field';
 
-import './ExpenseForm.scss';
+import classes from './ExpenseForm.module.scss';
 
 type Props = {
   minDate: string,
@@ -69,10 +69,10 @@ function ExpenseForm({
 
   return (
     <form>
-      <fieldset className='new-expense__controls'>
+      <fieldset className={classes['new-expense__controls']}>
         <Field
           ref={titleRef}
-          className='new-expense__field new-expense__field--wide'
+          className={`${classes['new-expense__field']} ${classes['new-expense__field--wide']}`}
           label='Title'
           name='title'
           type='text'
@@ -86,7 +86,7 @@ function ExpenseForm({
 
         <Field
           ref={dateRef}
-          className='new-expense__field'
+          className={classes['new-expense__field']}
           label='Date'
           name='date'
           type='date'
@@ -100,7 +100,7 @@ function ExpenseForm({
 
         <Field
           ref={amountRef}
-          className='new-expense__field'
+          className={classes['new-expense__field']}
           label='Amount'
           name='amount'
           type='number'
@@ -113,7 +113,7 @@ function ExpenseForm({
         />
       </fieldset>
 
-      <div className='new-expense__actions'>
+      <div className={classes['new-expense__actions']}>
         <Button onClick={submitHandler}>
           Add expense
         </Button>

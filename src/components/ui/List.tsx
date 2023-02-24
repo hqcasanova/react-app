@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import './List.scss';
+import classes from './List.module.scss';
 
 type Props<ItemType> = {
   className?: string,
@@ -15,14 +15,22 @@ function List({
   emptyItem,
   children,
 }: Props<any>) {
-  const classes = `list ${className}`;
+  const rootClasses = [
+    'list',
+    items.length ? '' : 'list--empty',
+    ...className.split(' '),
+  ];
+  const rootClassName = rootClasses
+    .map((cName) => classes[cName] || cName)
+    .filter(Boolean)
+    .join(' ');
 
   return (
-    <ul className={classes}>
+    <ul className={rootClassName}>
       {
         items.length > 0
           ? items.map((item) => children(item, 'li'))
-          : <li className='list--empty'>{ emptyItem }</li>
+          : <li>{ emptyItem }</li>
       }
     </ul>
   );

@@ -1,6 +1,6 @@
 import Button from 'components/ui/Button';
 
-import './ExpenseDate.scss';
+import classes from './ExpenseDate.module.scss';
 
 type Props = {
   date: Date,
@@ -13,22 +13,26 @@ function ExpenseDate({ date, onClick }: Props) {
   const day = date.toLocaleString('en-GB', { day: '2-digit' });
   const year = date.getFullYear();
 
-  const clickHandler = () => {
-    onClick(date);
-  };
+  const clickHandler = () => onClick(date);
 
   return (
     <Button
-      className='expense-date secondary'
+      className={`${classes['expense-date']} secondary`}
       onClick={clickHandler}
     >
       <time
-        className='expense-date__wrapper'
+        className={classes['expense-date__wrapper']}
         dateTime={`${year}-${monthNum}-${day}`}
       >
-        <span className='expense-date__item expense-date__day'>{ day }</span>
-        <span className='expense-date__item expense-date__month'>{ month }</span>
-        <span className='expense-date__item expense-date__year'>{ year }</span>
+        <span className={`${classes['expense-date__item']} ${classes['expense-date__day']}`}>
+          { day }
+        </span>
+        <span className={`${classes['expense-date__item']} ${classes['expense-date__month']}`}>
+          { month }
+        </span>
+        <span className={`${classes['expense-date__item']} ${classes['expense-date__year']}`}>
+          { year }
+        </span>
       </time>
     </Button>
   );

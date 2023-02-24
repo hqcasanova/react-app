@@ -6,7 +6,7 @@ import ExpenseItem from './ExpenseItem';
 import ExpensesFilter from './ExpensesFilter';
 import ExpensesChart from './ExpensesChart';
 
-import './index.scss';
+import classes from './index.module.scss';
 
 type Props = {
   startYear?: number,
@@ -66,8 +66,8 @@ function ExpensesList({
   };
 
   return (
-    <div className='expenses'>
-      <div className='expenses__heading'>
+    <div className={classes.expenses}>
+      <div className={classes.expenses__heading}>
         <ExpensesFilter
           startYear={startYear}
           endYear={endYear}
@@ -75,7 +75,7 @@ function ExpensesList({
           onChangeFilter={changeFilterHandler}
         />
 
-        <span className='expenses__counter'>
+        <span className={classes.expenses__counter}>
           { filteredCount() }
           { totalCount() }
         </span>
@@ -84,7 +84,7 @@ function ExpensesList({
       <ExpensesChart expenses={filteredExpenses} />
 
       <List
-        className='expenses__list'
+        className={classes.expenses__list}
         items={filteredExpenses}
         emptyItem={<strong>No expenses found</strong>}
       >

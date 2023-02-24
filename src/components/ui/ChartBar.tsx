@@ -1,4 +1,4 @@
-import './ChartBar.scss';
+import classes from './ChartBar.module.scss';
 
 type Props = {
   value: number,
@@ -20,14 +20,14 @@ function ChartBar({
   }
 
   return (
-    <div className='chart-bar'>
-      <div className='chart-bar__inner'>
+    <div className={classes['chart-bar']}>
+      <div className={classes['chart-bar__inner']}>
         <div
-          className='chart-bar__fill'
+          className={classes['chart-bar__fill']}
           style={{ height: cssFillHeight }}
         />
       </div>
-      <div className='chart-bar__label'>
+      <div className={classes['chart-bar__label']}>
         { label }
       </div>
     </div>
