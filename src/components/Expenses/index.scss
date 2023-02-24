@@ -1,4 +1,6 @@
 .expenses {
+  display: grid;
+  row-gap: 2rem;
   margin: 2rem auto;
   width: 95%;
   max-width: 50rem;
@@ -7,11 +9,16 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 1rem;
+    margin-bottom: -1rem;
   }
 
   &__counter {
     font-size: .9rem;
+  }
+
+  &__list {
+    display: grid;
+    row-gap: 2rem;
   }
 }
 

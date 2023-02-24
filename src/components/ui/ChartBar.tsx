@@ -1,0 +1,37 @@
+import './ChartBar.scss';
+
+type Props = {
+  value: number,
+  maxValue: number,
+  label: string,
+};
+
+function ChartBar({
+  value,
+  maxValue,
+  label,
+}: Props) {
+  let cssFillHeight = '0%';
+  let fillPercentage;
+
+  if (maxValue > 0) {
+    fillPercentage = Math.round((value / maxValue) * 100);
+    cssFillHeight = `${fillPercentage}%`;
+  }
+
+  return (
+    <div className='chart-bar'>
+      <div className='chart-bar__inner'>
+        <div
+          className='chart-bar__fill'
+          style={{ height: cssFillHeight }}
+        />
+      </div>
+      <div className='chart-bar__label'>
+        { label }
+      </div>
+    </div>
+  );
+}
+
+export default ChartBar;

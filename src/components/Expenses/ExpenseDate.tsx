@@ -9,6 +9,7 @@ type Props = {
 
 function ExpenseDate({ date, onClick }: Props) {
   const month = date.toLocaleString('en-GB', { month: 'long' });
+  const monthNum = (date.getMonth() + 1).toString().padStart(2, '0');
   const day = date.toLocaleString('en-GB', { day: '2-digit' });
   const year = date.getFullYear();
 
@@ -21,7 +22,10 @@ function ExpenseDate({ date, onClick }: Props) {
       className='expense-date secondary'
       onClick={clickHandler}
     >
-      <time dateTime={`${year}-${month}-${day}`}>
+      <time
+        className='expense-date__wrapper'
+        dateTime={`${year}-${monthNum}-${day}`}
+      >
         <span className='expense-date__item expense-date__day'>{ day }</span>
         <span className='expense-date__item expense-date__month'>{ month }</span>
         <span className='expense-date__item expense-date__year'>{ year }</span>

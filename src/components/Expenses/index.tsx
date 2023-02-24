@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import List from 'components/ui/List';
 import Expense from 'models/Expense';
 import ExpenseItem from './ExpenseItem';
 import ExpensesFilter from './ExpensesFilter';
+import ExpensesChart from './ExpensesChart';
 
 import './index.scss';
 
@@ -79,6 +80,8 @@ function ExpensesList({
           { totalCount() }
         </span>
       </div>
+
+      <ExpensesChart expenses={filteredExpenses} />
 
       <List
         className='expenses__list'
